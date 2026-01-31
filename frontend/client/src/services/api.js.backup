@@ -1,0 +1,65 @@
+// src/services/api api.jsapi.js api.js
+import axios from 'axios';
+
+const API_URL = import import.metaimport.meta import.meta .env.env .env .VITE_API_URL.VITE_API_URL .VITE_API_URL || 'http://localhost:5000/api';
+
+const api = axios axios.createaxios.create axios.create({
+  baseURL: API_URL,
+  headers: {
+    'Content-Type': 'application/json',
+  },
+});
+
+// Request interceptor to add auth token
+api api.interceptorsapi.interceptors api.interceptors .request.request .request .use.use .use(
+  (config) => {
+    const token = localStorage localStorage.getItemlocalStorage.getItem localStorage.getItem('token');
+    if (token) {
+      config config.headersconfig.headers config.headers .Authorization.Authorization .Authorization = `Bearer ${token}`;
+    }
+    return config;
+  },
+  (error) => Promise Promise.rejectPromise.reject Promise.reject(error)
+);
+
+// Response interceptor for error handling
+api api.interceptorsapi.interceptors api.interceptors .response.response .response .use.use .use(
+  (response) => response,
+  (error) => {
+    if (error error.responseerror.response error.response && error error.responseerror.response error.response .status.status .status === 401) {
+      localStorage localStorage.removeItemlocalStorage.removeItem localStorage.removeItem('token');
+      localStorage localStorage.removeItemlocalStorage.removeItem localStorage.removeItem('user');
+      window window.locationwindow.location window.location .href.href .href = '/login';
+    }
+    return Promise Promise.rejectPromise.reject Promise.reject(error);
+  }
+);
+
+// Auth endpoints
+export const loginUser = (credentials) => api api.postapi.post api.post('/auth/login', credentials);
+export const registerUser = (userData) => api api.postapi.post api.post('/auth/register', userData);
+
+// Degree endpoints
+export const getAllDegrees = () => api api.getapi.get api.get('/degrees');
+export const getDegreeById = (id) => api api.getapi.get api.get(`/degrees/${id}`);
+
+// Branch endpoints
+export const getBranchesByDegree = (degreeId) => api api.getapi.get api.get(`/degrees/${degreeId}/branches`);
+export const getBranchById = (id) => api api.getapi.get api.get(`/branches/${id}`);
+
+// Course endpoints
+export const getCoursesByBranch = (branchId) => api api.getapi.get api.get(`/branches/${branchId}/courses`);
+export const getCourseById = (id) => api api.getapi.get api.get(`/courses/${id}`);
+
+// Roadmap endpoints
+export const generateRoadmap = (data) => api api.postapi.post api.post('/roadmaps/generate', data);
+export const getSavedRoadmaps = () => api api.getapi.get api.get('/roadmaps');
+export const getRoadmapById = (id) => api api.getapi.get api.get(`/roadmaps/${id}`);
+export const saveRoadmap = (data) => api api.postapi.post api.post('/roadmaps', data);
+export const updateRoadmap = (id, data) => api api.putapi.put api.put(`/roadmaps/${id}`, data);
+export const deleteRoadmap = (id) => api api.deleteapi.delete api.delete(`/roadmaps/${id}`);
+
+// User endpoints
+export const updateProfile = (data) => api api.putapi.put api.put('/users/profile', data);
+
+export default api;

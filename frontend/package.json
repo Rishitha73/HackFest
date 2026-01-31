@@ -1,0 +1,23 @@
+{
+    "name": "frontend",
+    "private": true,
+    "version": "1.0.0",
+    "type": "module",
+    "scripts": {
+        "dev": "cd client && vite",
+        "build": "cd client && vite build",
+        "preview": "cd client && vite preview"
+    },
+    "dependencies": {
+        "react": "^18.2.0",
+        "react-dom": "^18.2.0",
+        "react-router-dom": "^6.21.1",
+        "axios": "^1.6.5"
+    },
+    "devDependencies": {
+        "@types/react": "^18.2.48",
+        "@types/react-dom": "^18.2.18",
+        "@vitejs/plugin-react": "^4.2.1",
+        "vite": "^5.0.11"
+    }
+}

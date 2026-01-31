@@ -1,0 +1,75 @@
+{
+    "degrees": [{
+            "id": "deg-btech",
+            "name": "B.Tech Computer Science",
+            "level": "undergrad",
+            "summary": "Undergraduate degree for Computer Science engineering.",
+            "description": "A 4-year Bachelor of Technology in Computer Science focusing on programming, algorithms, systems, and software engineering.",
+            "branches": [{
+                    "id": "br-comp-net",
+                    "name": "Computer Networks",
+                    "summary": "Study of network protocols, routing, and communications.",
+                    "details": "Covers OSI/TCP-IP models, routing algorithms, switching, wireless networks, network security and practical labs. Recommended courses: Computer Networks, Network Security, Distributed Systems."
+                },
+                {
+                    "id": "br-ai-ml",
+                    "name": "AI & Machine Learning",
+                    "summary": "Introduction to AI, ML algorithms, and practical applications.",
+                    "details": "Covers supervised and unsupervised learning, neural networks, deep learning, model evaluation, and projects. Recommended courses: ML, Deep Learning, Data Mining."
+                },
+                {
+                    "id": "br-web-dev",
+                    "name": "Web Development",
+                    "summary": "Frontend and backend web development skills and practices.",
+                    "details": "Covers HTML, CSS, JavaScript, frontend frameworks (React/Vue), backend development with Node.js/Express, REST APIs, databases, deployment, and best practices for building responsive and accessible web applications. Recommended courses: Web Development, Advanced JavaScript, Backend Engineering."
+                },
+                {
+                    "id": "br-cyber-security",
+                    "name": "Cyber Security",
+                    "summary": "Foundations of cybersecurity, protection and threat mitigation.",
+                    "details": "Covers fundamentals of cryptography, network security, ethical hacking, vulnerability assessment, secure coding practices, incident response, and security operations. Recommended courses: Cyber Security, Network Security, Secure Coding."
+                }
+            ]
+        },
+        {
+            "id": "deg-bsc",
+            "name": "B.Sc Mathematics",
+            "level": "undergrad",
+            "summary": "Undergraduate degree in Mathematics.",
+            "description": "A 3-year Bachelor of Science in Mathematics covering algebra, analysis, probability and more.",
+            "branches": [{
+                    "id": "br-stat",
+                    "name": "Statistics",
+                    "summary": "Study of probability, inference and statistical modeling.",
+                    "details": "Covers probability theory, statistical inference, regression, time series and practical data analysis using tools like Python/R."
+                },
+                {
+                    "id": "br-applied-math",
+                    "name": "Applied Mathematics",
+                    "summary": "Applications of mathematics to engineering and science.",
+                    "details": "Covers numerical methods, differential equations, mathematical modeling and applications to physics/engineering problems."
+                }
+            ]
+        },
+        {
+            "id": "deg-mtech-ds",
+            "name": "M.Tech Data Science",
+            "level": "grad",
+            "summary": "Postgraduate degree focused on data science and advanced analytics.",
+            "description": "A 2-year Master's program covering statistical modeling, machine learning, big data tools and research methods.",
+            "branches": [{
+                    "id": "br-ml-research",
+                    "name": "ML Research",
+                    "summary": "Advanced machine learning and research methodologies.",
+                    "details": "Covers advanced ML topics, research design, reproducible experiments, and thesis work. Recommended: Deep Learning, Reinforcement Learning, Research Methods."
+                },
+                {
+                    "id": "br-bigdata",
+                    "name": "Big Data Engineering",
+                    "summary": "Engineering large-scale data processing systems.",
+                    "details": "Covers distributed data systems, Spark/Hadoop, data pipelines, and scalable ML deployments."
+                }
+            ]
+        }
+    ]
+}
