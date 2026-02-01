@@ -1,0 +1,85 @@
+@import './styles/globals.css';
+
+/* Layout & responsive container to improve UI/UX on laptops and smaller screens */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 16px;
+}
+
+body {
+    margin: 0;
+    min-height: 100%;
+    background: var(--bg, #ffffff);
+    color: var(--text, #111);
+}
+
+#root {
+    min-height: 100%;
+    display: flex;
+    align-items: flex-start;
+    /* start so top nav is visible on load */
+    justify-content: center;
+    padding: 24px;
+}
+
+.App {
+    width: 100%;
+    max-width: 1200px;
+    /* comfortable width for laptop screens */
+    margin: 0 auto;
+    padding: 28px;
+    background: transparent;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+
+/* Make sure main content takes available space and is scrollable on small screens */
+
+.main-content {
+    flex: 1 1 auto;
+    min-height: 60vh;
+}
+
+
+/* Responsive adjustments */
+
+@media (max-width: 1024px) {
+    .App {
+        max-width: 960px;
+        padding: 22px;
+    }
+}
+
+@media (max-width: 768px) {
+    #root {
+        padding: 16px;
+    }
+    .App {
+        max-width: 720px;
+        padding: 18px;
+    }
+}
+
+@media (max-width: 420px) {
+    #root {
+        padding: 12px;
+    }
+    .App {
+        max-width: 100%;
+        padding: 12px;
+    }
+}
+
+
+/* Keep Tailwind directives (if Tailwind is used) */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
