@@ -1,0 +1,87 @@
+DEPLOYMENT CHECKLIST
+====================
+
+Follow these steps in order:
+
+□ STEP 1: MONGODB ATLAS
+  □ Create MongoDB Atlas account
+  □ Create free cluster (M0)
+  □ Create database user
+  □ Whitelist IP (0.0.0.0/0 for all)
+  □ Get connection string
+  □ Save connection string somewhere safe
+
+□ STEP 2: PUSH TO GITHUB
+  □ Create GitHub repository
+  □ Run these commands:
+    
+    cd C:\Users\rishi\OneDrive\Desktop\trial-project
+    git init
+    git add .
+    git commit -m "Initial commit - Academic Roadmap Platform"
+    git branch -M main
+    git remote add origin https://github.com/YOUR_USERNAME/YOUR_REPO_NAME.git
+    git push -u origin main
+
+□ STEP 3: DEPLOY BACKEND (RENDER)
+  □ Sign up at render.com
+  □ Create new Web Service
+  □ Connect GitHub repo
+  □ Set root directory: backend
+  □ Set build command: npm install
+  □ Set start command: npm start
+  □ Add environment variables:
+    - PORT=5000
+    - MONGODB_URI=<your_atlas_connection_string>
+    - JWT_SECRET=<generate_a_long_random_string>
+    - LLM_API_KEY=<your_llm_api_key>
+    - LLM_API_URL=https://api.x.ai/v1/chat/completions
+    - NODE_ENV=production
+  □ Deploy and wait
+  □ Copy backend URL (e.g., https://your-app.onrender.com)
+  □ Test backend: Visit https://your-app.onrender.com/api/v1/degrees
+  □ Run seed script in Render Shell:
+    - node scripts/seed.js
+    - node scripts/createTestAccounts.js
+
+□ STEP 4: DEPLOY FRONTEND (VERCEL)
+  □ Sign up at vercel.com
+  □ Import GitHub repository
+  □ Set root directory: frontend
+  □ Add environment variable:
+    - REACT_APP_API_URL=https://your-backend.onrender.com/api/v1
+  □ Deploy
+  □ Copy your live URL (e.g., https://your-app.vercel.app)
+
+□ STEP 5: TEST EVERYTHING
+  □ Visit your Vercel URL
+  □ Test registration
+  □ Test login with: cse.student@example.com / password123
+  □ Test dashboard loads
+  □ Test roadmap generation
+  □ Test save roadmap
+
+□ STEP 6: SHARE
+  □ Update README.md with live link
+  □ Share with users
+  □ Celebrate! 🎉
+
+YOUR URLS (Fill in after deployment):
+=====================================
+
+Backend URL: _______________________________________________
+
+Frontend URL: _______________________________________________
+
+MongoDB URI: _______________________________________________
+
+GitHub Repo: _______________________________________________
+
+
+NOTES:
+======
+- Free tier services sleep after 15 min inactivity
+- First request after sleep takes ~30 seconds to wake up
+- MongoDB Atlas M0 has 512MB storage limit
+- Vercel has 100GB bandwidth/month limit
+- All these limits are generous for small projects
